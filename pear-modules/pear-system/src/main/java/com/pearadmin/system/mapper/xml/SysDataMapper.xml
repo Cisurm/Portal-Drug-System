@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pearadmin.system.mapper.SysDataMapper">
+
+
+    <!--    查询按照月份查询访问数量并按照月份分组-->
+    <select id="getData" resultType="SysData">
+        SELECT DATE_FORMAT(create_time,'%Y%m') months ,count(*) count FROM sys_logging  GROUP BY months
+    </select>
+</mapper>
